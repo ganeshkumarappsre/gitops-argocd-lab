@@ -1,0 +1,3 @@
+replicaCount: 3
+podLabels:
+ env: prod
