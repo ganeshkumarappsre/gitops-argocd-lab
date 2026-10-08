@@ -1,5 +1,3 @@
 replicaCount: 1
 podLabels:
  env: dev
-image:
- tag: "does-not-exist"
