@@ -30,12 +30,12 @@ kubectl apply -f argocd/applicationset.yaml
 ## What I demonstrated
 | # | Scenario | Result | Evidence |
 |---|----------|--------|----------|
-| A | Change replicas via Git commit | Auto-synced, 1 → 2 pods | docs/02-git-change-scaled.png |
-| B | `kubectl scale` to 5 (manual drift) | Self-heal reverted in ~2s | docs/03-drift-selfheal.png |
-| C | Rollback with `git revert` | Cluster returned to prior state, full audit trail | docs/04-git-revert-rollback.png |
-| D | Bad image tag pushed | New pod ImagePullBackOff, old pod kept serving (no outage); fixed via revert | docs/05-broken-image.png, 05b-fix-reverted.png |
-| E | Change prod only | Prod 3 → 4 pods, dev untouched | docs/07-env-isolation.png |
-| F | Delete a template from Git | ArgoCD pruned the resource | docs/08-prune.png |
+| A | Change replicas via Git commit | Auto-synced, 1 → 2 pods | ![Auto-Synced](docs/02-git-change-scaled.png) |
+| B | `kubectl scale` to 5 (manual drift) | Self-heal reverted in ~2s | ![Drift-Selfheal](docs/03-drift-selfheal.png) |
+| C | Rollback with `git revert` | Cluster returned to prior state, full audit trail | ![Revert-Rollback](docs/04-git-revert-rollback.png) |
+| D | Bad image tag pushed | New pod ImagePullBackOff, old pod kept serving (no outage); fixed via revert | ![Broken-Image](docs/05-broken-image.png)   ![Fix-Reverted](docs/05b-fix-reverted.png) |
+| E | Change prod only | Prod 3 → 4 pods, dev untouched | ![Env-Isolation](docs/07-env-isolation.png) |
+| F | Delete a template from Git | ArgoCD pruned the resource | ![Prune](docs/08-prune.png) |
 
 ![Both environments](docs/06-applicationset-two-envs.png)
 
